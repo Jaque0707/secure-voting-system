@@ -3,7 +3,7 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from jose import JWTError, jwt
 from sqlalchemy.orm import Session
 
-from app.config import settings
+from app.core.config import settings
 from app.database.dependencies import get_db
 from app.models.user import User
 

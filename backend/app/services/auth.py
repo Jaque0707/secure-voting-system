@@ -1,7 +1,7 @@
 import hashlib
 from datetime import datetime, timedelta, timezone
 from jose import jwt
-from app.config import settings
+from app.core.config import settings
 
 def hash_password(password: str) -> str:
     return hashlib.shake_128(password.encode('utf-8')).hexdigest(32)
