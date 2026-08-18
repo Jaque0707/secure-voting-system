@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean,Column,Integer,String
+from sqlalchemy import Boolean,Column,Integer,String,Text
 
 from sqlalchemy.orm import relationship
 
@@ -28,6 +28,12 @@ class User(Base):
     password_hash = Column(
         String(64),
         nullable=False
+    )
+
+    public_key = Column(
+        Text,
+        nullable=True,
+        unique=True
     )
 
     is_admin = Column(

@@ -17,5 +17,6 @@ def get_me(
     return {
         "id": current_user.id_user,
         "username": current_user.username,
-        "is_admin": current_user.is_admin
+        "is_admin": current_user.is_admin,
+        "has_public_key": current_user.public_key is not None
     }

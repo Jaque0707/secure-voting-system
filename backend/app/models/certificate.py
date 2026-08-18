@@ -2,7 +2,9 @@ from sqlalchemy import (
     Column,
     ForeignKey,
     Integer,
-    Text
+    Text,
+    DateTime,
+    String
 )
 
 from sqlalchemy.orm import relationship
@@ -32,7 +34,29 @@ class Certificate(Base):
     id_user = Column(
         Integer,
         ForeignKey("election.user.id_user"),
+        nullable=False,
+        unique=True
+    )
+
+    public_key = Column(
+        Text,
         nullable=False
+    )
+
+    issued_at = Column(
+        DateTime,
+        nullable=False
+    )
+
+    expires_at = Column(
+        DateTime, 
+        nullable=False
+    )
+
+    status = Column(
+        String(20),
+        nullable=False,
+        default="active"
     )
 
     user = relationship(

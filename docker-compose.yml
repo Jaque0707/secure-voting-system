@@ -38,6 +38,9 @@ services:
     ports:
       - "8000:8000"
 
+    volumes:
+      - ./backend:/app
+
     depends_on:
       postgres:
         condition: service_healthy
@@ -52,6 +55,9 @@ services:
     ports:
       - "8001:8001"
 
+    volumes:
+      - ca_keys:/app/keys
+
     depends_on:
       - postgres
 
@@ -65,9 +71,16 @@ services:
     ports:
       - "3000:3000"
 
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+    command: npm run dev
+
     depends_on:
       - backend
 
 
 volumes:
   postgres_data:
+  ca_keys:

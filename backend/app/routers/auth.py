@@ -5,7 +5,7 @@ from app.database.dependencies import get_db
 from app.models.user import User
 from app.schemas.auth import RegisterRequest, LoginRequest, TokenResponse
 from app.services.auth import hash_password, verify_password, create_access_token
-
+from app.crypto.user_keys import validate_public_key
 
 router = APIRouter(
     prefix="/auth",
@@ -18,6 +18,12 @@ def register(
     data: RegisterRequest,
     db: Session = Depends(get_db)
 ):
+    if not validate_public_key(data.public_key):
+        raise HTTPException(
+            status_code=400,
+            detail="Invalid RSA public key"
+        )
+
     existing_user = (
         db.query(User)
         .filter(User.username == data.username)
@@ -30,11 +36,24 @@ def register(
             detail="Username already exists"
         )
 
+    existing_public_key = (
+        db.query(User)
+        .filter(User.public_key == data.public_key)
+        .first()
+    )
+
+    if existing_public_key:
+        raise HTTPException(
+            status_code=400,
+            detail="Public key already registered"
+        )
+
     hashed_password = hash_password(data.password)
 
     user = User(
         username=data.username,
         password_hash=hashed_password,
+        public_key=data.public_key,
         is_admin=False
     )
 
@@ -44,7 +63,8 @@ def register(
 
     return {
         "id": user.id_user,
-        "username": user.username
+        "username": user.username,
+        "message": "User registered successfully"
     }
 
 @router.post("/login",response_model=TokenResponse)
