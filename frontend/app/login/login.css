@@ -1,4 +1,4 @@
-.register-page {
+.login-page {
   min-height: 100vh;
 
   display: flex;
@@ -19,21 +19,21 @@
 }
 
 
-.register-card {
+.login-card {
   width: 100%;
 
   max-width: 460px;
 }
 
 
-.register-header {
+.login-header {
   margin-bottom: 30px;
 
   text-align: center;
 }
 
 
-.register-header h1 {
+.login-header h1 {
   margin: 0;
 
   color:
@@ -45,7 +45,7 @@
 }
 
 
-.register-header h2 {
+.login-header h2 {
   margin:
     24px 0 8px;
 
@@ -58,7 +58,7 @@
 }
 
 
-.register-header p {
+.login-header p {
   max-width: 340px;
 
   margin: 0 auto;
@@ -72,33 +72,7 @@
 }
 
 
-.security-icon {
-  width: 58px;
-
-  height: 58px;
-
-  margin:
-    0 auto 18px;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  border-radius: 14px;
-
-  background:
-    var(--color-storm);
-
-  color:
-    var(--color-moonlight);
-
-  font-size: 26px;
-}
-
-
-.register-form {
+.login-form {
   display: flex;
 
   flex-direction: column;
@@ -107,7 +81,7 @@
 }
 
 
-.login-link {
+.register-link {
   display: flex;
 
   justify-content: center;
@@ -123,7 +97,7 @@
 }
 
 
-.login-link a {
+.register-link a {
   color:
     var(--color-storm);
 
@@ -133,7 +107,7 @@
 }
 
 
-.login-link a:hover {
+.register-link a:hover {
   color:
     var(--color-oxford-blue);
 
@@ -143,13 +117,13 @@
 
 @media (max-width: 500px) {
 
-  .register-page {
+  .login-page {
     padding:
       24px 16px;
   }
 
 
-  .register-card {
+  .login-card {
     max-width: 460px;
   }
 

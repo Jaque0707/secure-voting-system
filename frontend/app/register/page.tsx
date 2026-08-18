@@ -14,6 +14,16 @@ import {
 
 import { registerUser } from "@/lib/api";
 
+import Logo from "@/components/Logo";
+
+import Button from "@/components/ui/Button";
+
+import Input from "@/components/ui/Input";
+
+import Card from "@/components/ui/Card";
+
+import Alert from "@/components/ui/Alert";
+
 
 export default function RegisterPage() {
 
@@ -128,20 +138,31 @@ export default function RegisterPage() {
   return (
   <main className="register-page">
 
-    <section className="register-card">
+    <Card
+      padding="large"
+      className="register-card"
+    >
 
       <div className="register-header">
 
-        <div className="security-icon">
-          🔐
-        </div>
+        <Logo
+          showText={false}
+          size={58}
+        />
 
-        <h1>Secure Voting System</h1>
 
-        <h2>Create an account</h2>
+        <h1>
+          Secure Voting System
+        </h1>
+
+
+        <h2>
+          Create an account
+        </h2>
+
 
         <p>
-          Register to participate in secure 
+          Register to participate in secure
           voting.
         </p>
 
@@ -153,100 +174,68 @@ export default function RegisterPage() {
         onSubmit={handleRegister}
       >
 
-        <div className="form-group">
-
-          <label htmlFor="username">
-            Username
-          </label>
-
-          <input
-            id="username"
-            type="text"
-            value={username}
-            onChange={(event) =>
-              setUsername(event.target.value)
-            }
-            placeholder="Enter your username"
-            required
-            minLength={3}
-            maxLength={30}
-          />
-
-        </div>
+        <Input
+          id="username"
+          label="Username"
+          type="text"
+          value={username}
+          onChange={(event) =>
+            setUsername(event.target.value)
+          }
+          placeholder="Enter your username"
+          required
+          minLength={3}
+          maxLength={30}
+        />
 
 
-        <div className="form-group">
-
-          <label htmlFor="password">
-            Password
-          </label>
-
-          <input
-            id="password"
-            type="password"
-            value={password}
-            onChange={(event) =>
-              setPassword(event.target.value)
-            }
-            placeholder="Enter your password"
-            required
-            minLength={8}
-          />
-
-        </div>
+        <Input
+          id="password"
+          label="Password"
+          type="password"
+          value={password}
+          onChange={(event) =>
+            setPassword(event.target.value)
+          }
+          placeholder="Enter your password"
+          required
+          minLength={8}
+        />
 
 
-        <div className="security-info">
-
-          <span className="security-info-icon">
-            🔑
-          </span>
-
-          <div>
-
-            <strong>
-              Important
-            </strong>
-
-            <p>
-              During registration, your 
-              key pair will be generated 
-              automatically. Your private 
-              key will be downloaded to 
-              your device. Keep it in a 
-              safe place.
-            </p>
-
-          </div>
-
-        </div>
+        <Alert
+          type="warning"
+          title="Important"
+        >
+          During registration, your key pair
+          will be generated automatically.
+          Your private key will be downloaded
+          to your device. Keep it in a safe place.
+        </Alert>
 
 
         {error && (
-          <div className="error-message">
+          <Alert type="error">
             {error}
-          </div>
+          </Alert>
         )}
 
 
         {success && (
-          <div className="success-message">
+          <Alert type="success">
             {success}
-          </div>
+          </Alert>
         )}
 
 
-        <button
-          className="register-button"
+        <Button
           type="submit"
-          disabled={loading}
+          fullWidth
+          loading={loading}
+          loadingText="Creating account..."
         >
-
-          {loading
-            ? "Creating account..."
-            : "Create account"}
-
-        </button>
+          Create account
+        </Button>
 
       </form>
 
@@ -263,7 +252,7 @@ export default function RegisterPage() {
 
       </div>
 
-    </section>
+    </Card>
 
   </main>
 );
