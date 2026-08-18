@@ -1,0 +1,395 @@
+.register-page {
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 40px 20px;
+
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(139, 163, 197, 0.25),
+      transparent 35%
+    ),
+    var(--color-background);
+}
+
+
+.register-card {
+  width: 100%;
+
+  max-width: 460px;
+
+  padding: 42px;
+
+  background: var(--color-surface);
+
+  border:
+    1px solid
+    rgba(73, 91, 125, 0.18);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-card);
+}
+
+
+/* ========================================
+   Header
+   ======================================== */
+
+.register-header {
+  margin-bottom: 32px;
+
+  text-align: center;
+}
+
+
+.security-icon {
+  width: 58px;
+
+  height: 58px;
+
+  margin:
+    0 auto 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: var(--color-storm);
+
+  color: var(--color-moonlight);
+
+  font-size: 26px;
+
+  box-shadow:
+    0 8px 20px
+    rgba(2, 18, 47, 0.18);
+}
+
+
+.register-header h1 {
+  margin: 0;
+
+  color: var(--color-oxford-blue);
+
+  font-size: 23px;
+
+  font-weight: 700;
+
+  letter-spacing: -0.3px;
+}
+
+
+.register-header h2 {
+  margin:
+    28px 0 8px;
+
+  color: var(--color-storm);
+
+  font-size: 21px;
+
+  font-weight: 600;
+}
+
+
+.register-header p {
+  max-width: 340px;
+
+  margin: 0 auto;
+
+  color: var(--color-text-secondary);
+
+  font-size: var(--font-size-sm);
+
+  line-height: 1.6;
+}
+
+
+/* ========================================
+   Form
+   ======================================== */
+
+.register-form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+
+.form-group {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+
+.form-group label {
+  color: var(--color-text-primary);
+
+  font-size: var(--font-size-sm);
+
+  font-weight: 600;
+}
+
+
+.form-group input {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  border:
+    1px solid
+    var(--color-border);
+
+  border-radius: var(--radius-md);
+
+  outline: none;
+
+  background: #ffffff;
+
+  color: var(--color-text-primary);
+
+  font-size: var(--font-size-md);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.form-group input::placeholder {
+  color: #8a96a8;
+}
+
+
+.form-group input:focus {
+  border-color:
+    var(--color-frost-blue);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(139, 163, 197, 0.25);
+}
+
+
+/* ========================================
+   Cryptographic information
+   ======================================== */
+
+.security-info {
+  display: flex;
+
+  gap: 12px;
+
+  padding: 15px;
+
+  border:
+    1px solid
+    rgba(139, 163, 197, 0.45);
+
+  border-radius: var(--radius-md);
+
+  background:
+    rgba(139, 163, 197, 0.10);
+}
+
+
+.security-info-icon {
+  flex-shrink: 0;
+
+  font-size: 20px;
+}
+
+
+.security-info strong {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: var(--color-storm);
+
+  font-size: var(--font-size-sm);
+}
+
+
+.security-info p {
+  margin: 0;
+
+  color: var(--color-text-secondary);
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+
+/* ========================================
+   Button
+   ======================================== */
+
+.register-button {
+  width: 100%;
+
+  padding: 14px 18px;
+
+  border: none;
+
+  border-radius: var(--radius-md);
+
+  background: var(--color-storm);
+
+  color: #ffffff;
+
+  font-size: var(--font-size-md);
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: var(--shadow-button);
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.register-button:hover {
+  background: var(--color-oxford-blue);
+
+  box-shadow:
+    0 6px 16px
+    rgba(2, 18, 47, 0.20);
+}
+
+
+.register-button:active {
+  transform: translateY(1px);
+}
+
+
+.register-button:disabled {
+  background: var(--color-frost-blue);
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+
+/* ========================================
+   Messages
+   ======================================== */
+
+.error-message {
+  padding: 12px 14px;
+
+  border:
+    1px solid
+    #e4bcbc;
+
+  border-radius: var(--radius-md);
+
+  background:
+    var(--color-error-background);
+
+  color: var(--color-error);
+
+  font-size: 13px;
+}
+
+
+.success-message {
+  padding: 12px 14px;
+
+  border:
+    1px solid
+    #b9d8c4;
+
+  border-radius: var(--radius-md);
+
+  background:
+    var(--color-success-background);
+
+  color: var(--color-success);
+
+  font-size: 13px;
+}
+
+
+/* ========================================
+   Login link
+   ======================================== */
+
+.login-link {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 5px;
+
+  margin-top: 28px;
+
+  color: var(--color-text-secondary);
+
+  font-size: 13px;
+}
+
+
+.login-link a {
+  color: var(--color-storm);
+
+  font-weight: 600;
+
+  text-decoration: none;
+}
+
+
+.login-link a:hover {
+  color: var(--color-oxford-blue);
+
+  text-decoration: underline;
+}
+
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 500px) {
+
+  .register-page {
+    padding: 24px 16px;
+  }
+
+
+  .register-card {
+    padding: 30px 22px;
+  }
+
+
+  .register-header h1 {
+    font-size: 21px;
+  }
+
+
+  .register-header h2 {
+    font-size: 20px;
+  }
+
+}
